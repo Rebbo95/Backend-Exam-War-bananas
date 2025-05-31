@@ -1,0 +1,47 @@
+type: collection.insomnia.rest/5.0
+name: AirBean-API
+meta:
+  id: wrk_330f18b1a11c41169dab5d683245f8a8
+  created: 1748606494513
+  modified: 1748606494513
+collection:
+  - name: menu
+    meta:
+      id: fld_ef9636a62e064771808fc9d4c9ce9306
+      created: 1748606518610
+      modified: 1748631327019
+      sortKey: -1748606518610
+    children:
+      - url: http://localhost:8080/api/menu
+        name: GET all-menu
+        meta:
+          id: req_02aee7ef9bf8430d90e35e6a41feef1a
+          created: 1748606525502
+          modified: 1748688289657
+          isPrivate: false
+          sortKey: -1748606525503
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_05a8e726657cbf1303aceaff1d303a164bfde369
+    created: 1748606494526
+    modified: 1748606494526
+environments:
+  name: Base Environment
+  meta:
+    id: env_05a8e726657cbf1303aceaff1d303a164bfde369
+    created: 1748606494518
+    modified: 1748606494518
+    isPrivate: false

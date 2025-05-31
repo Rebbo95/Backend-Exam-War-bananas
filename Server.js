@@ -1,20 +1,33 @@
-const express = require('express');
-const mongoose = require('mongoose');
-require('dotenv').config();
-const routes = require('./Routes');
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import menuRouter from './Routes/Coffee.js';
 
-const ConnectDb = require('./Config/ConnectDb');
-
+// Config
+dotenv.config();
 const app = express();
+const PORT = process.env.PORT;
+mongoose.connect(process.env.CONNECTION_STRING);
+const database = mongoose.connection;
 
+
+// Middlewares
 app.use(express.json());
-app.use('/api', routes);
+
+// Routes
+app.use('/api/menu', menuRouter);
 
 
-ConnectDb();
 
-const PORT = process.env.PORT || 5000;
+// DB EmitEvents
+database.on('error', (error) => console.log(error));
+database.once('connected', () => {
+    console.log('DB connected');
 
-app.listen(PORT, () => {
+    // Start sever
+    app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+
+    });
+
 });
